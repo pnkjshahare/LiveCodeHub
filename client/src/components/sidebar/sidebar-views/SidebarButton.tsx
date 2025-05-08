@@ -15,7 +15,7 @@ const ViewButton = ({ viewName, icon }: ViewButtonProps) => {
     const { activeView, setActiveView, isSidebarOpen, setIsSidebarOpen } =
         useViews()
     const { isNewMessage } = useChatRoom()
-    const { width, height } = useWindowDimensions() // Get the screen width and height from the hook
+    const { width } = useWindowDimensions() // Get the screen width and height from the hook
     const [showTooltip, setShowTooltip] = useState(true)
 
     useEffect(() => {
