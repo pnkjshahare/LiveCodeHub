@@ -1,3 +1,4 @@
+import ChatbotView from "@/components/sidebar/sidebar-views/ChatbotView"
 import ChatsView from "@/components/sidebar/sidebar-views/ChatsView"
 import FilesView from "@/components/sidebar/sidebar-views/FilesView"
 import RunView from "@/components/sidebar/sidebar-views/RunView"
@@ -9,7 +10,7 @@ import { ReactNode, createContext, useContext, useState } from "react"
 import { IoSettingsOutline } from "react-icons/io5"
 import { LuFiles } from "react-icons/lu"
 import { PiChats, PiPlay, PiUsers } from "react-icons/pi"
-
+import { FaRobot } from "react-icons/fa"
 const ViewContext = createContext<ViewContextType | null>(null)
 
 export const useViews = (): ViewContextType => {
@@ -30,6 +31,7 @@ function ViewContextProvider({ children }: { children: ReactNode }) {
         [VIEWS.SETTINGS]: <SettingsView />,
         [VIEWS.CHATS]: <ChatsView />,
         [VIEWS.RUN]: <RunView />,
+        [VIEWS.CHATBOT]: <ChatbotView />,
     })
     const [viewIcons] = useState({
         [VIEWS.FILES]: <LuFiles size={28} />,
@@ -37,6 +39,7 @@ function ViewContextProvider({ children }: { children: ReactNode }) {
         [VIEWS.SETTINGS]: <IoSettingsOutline size={28} />,
         [VIEWS.CHATS]: <PiChats size={30} />,
         [VIEWS.RUN]: <PiPlay size={28} />,
+        [VIEWS.CHATBOT]: <FaRobot size={30} color="white" />,
     })
 
     return (

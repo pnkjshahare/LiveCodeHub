@@ -10,8 +10,8 @@ import { VIEWS } from "@/types/view"
 import { IoCodeSlash } from "react-icons/io5"
 import { MdOutlineDraw } from "react-icons/md"
 import cn from "classnames"
-import { Tooltip } from 'react-tooltip'
-import { useState } from 'react'
+import { Tooltip } from "react-tooltip"
+import { useState } from "react"
 import { tooltipStyles } from "./tooltipStyles"
 
 function Sidebar() {
@@ -72,18 +72,24 @@ function Sidebar() {
                     viewName={VIEWS.SETTINGS}
                     icon={viewIcons[VIEWS.SETTINGS]}
                 />
+                <SidebarButton
+                    viewName={VIEWS.CHATBOT}
+                    icon={viewIcons[VIEWS.CHATBOT]}
+                />
 
                 {/* Button to change activity state coding or drawing */}
-                <div className="flex items-center justify-center h-fit">
-                    <button className="flex items-center justify-cente  rounded transition-colors duration-200 ease-in-out hover:bg-[#3D404A] p-1.5"
-                    onClick={changeState}
-                    onMouseEnter={() => setShowTooltip(true)}
-                    data-tooltip-id="activity-state-tooltip"
-                    data-tooltip-content={
-                            activityState === ACTIVITY_STATE.CODING 
-                                ? "Switch to Drawing Mode" 
+                <div className="flex h-fit items-center justify-center">
+                    <button
+                        className="justify-cente flex items-center  rounded p-1.5 transition-colors duration-200 ease-in-out hover:bg-[#3D404A]"
+                        onClick={changeState}
+                        onMouseEnter={() => setShowTooltip(true)}
+                        data-tooltip-id="activity-state-tooltip"
+                        data-tooltip-content={
+                            activityState === ACTIVITY_STATE.CODING
+                                ? "Switch to Drawing Mode"
                                 : "Switch to Coding Mode"
-                    }>
+                        }
+                    >
                         {activityState === ACTIVITY_STATE.CODING ? (
                             <MdOutlineDraw size={30} />
                         ) : (
@@ -91,7 +97,7 @@ function Sidebar() {
                         )}
                     </button>
                     {showTooltip && (
-                        <Tooltip 
+                        <Tooltip
                             id="activity-state-tooltip"
                             place="right"
                             offset={15}
